@@ -9,6 +9,6 @@ final class VotingSystem {
     }
     
     func canVote(age: Int) -> Bool {
-        age >= minimumAge
+        age > minimumAge
     }
 }
