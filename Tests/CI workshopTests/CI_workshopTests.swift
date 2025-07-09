@@ -1,6 +1,17 @@
 import Testing
 @testable import CI_workshop
 
-@Test func example() async throws {
-    // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+@Test func canVoteWhenHavingMinimumAge() async throws {
+    let sut = VotingSystem(minimumAge: 18)
+    #expect(sut.canVote(age: 18) == true)
+}
+
+@Test func canVoteWhenAboveMinimumAge() async throws {
+    let sut = VotingSystem(minimumAge: 18)
+    #expect(sut.canVote(age: 19) == true)
+}
+
+@Test func canVoteWhenBelowMinimumAge() async throws {
+    let sut = VotingSystem(minimumAge: 18)
+    #expect(sut.canVote(age: 17) == false)
 }
